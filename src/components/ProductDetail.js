@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useParams } from 'react-router';
 import ProductCard from './ProductCard';
+import { ProductDataContext } from '../context/ProductDataContext';
 
 
 const ProductDetail = () => {
-    const { id } = useParams()
+    const { productId } = useParams()
+    const { productData } = useContext(ProductDataContext);
 
     const showSelectedProduct = (productData, clickedId) =>{
-       return productData.find((product) => product.id === id )
+       return productData.find((product) => product.id === +clickedId )
     }
-    // need to create context for sharing main data to all child App comp
-    const selectedProduct = showSelectedProduct("need to put data")
+    const selectedProduct = showSelectedProduct(productData, productId)
 
   return (
     <div>
+        <h2>Product detail page</h2>
         <ProductCard {...selectedProduct} />
     </div>
   )

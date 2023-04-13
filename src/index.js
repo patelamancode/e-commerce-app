@@ -5,11 +5,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { ProductDataContext, ProdctDataProvider } from './context/ProductDataContext';
+export { ProductDataContext };
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <ProdctDataProvider>
+        <App />
+      </ProdctDataProvider>
     </Router>
   </React.StrictMode>
 );

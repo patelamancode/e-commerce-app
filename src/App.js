@@ -9,13 +9,14 @@ import ProductDetail from './components/ProductDetail';
 
 
 function App() {
+
   return (
     <div className="App">
       <Navbar />
       <Routes>
         <Route path='/' element={<ProductList />}/>
-        <Route path='/product/id' element={<ProductDetail />} />
-        <Route path='/cart' element={<Cart />}/>
+        <Route path='/product/:productId' element={<ProductDetail />} />
+        <Route path='/cart/:cartProductId' element={<Cart />}/>
         <Route path='/wishlist' element={<WishList />}/>
       </Routes>
     </div>
