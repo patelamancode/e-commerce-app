@@ -10,7 +10,6 @@ const WishList = () => {
       <h2>Hey I am wishlist</h2>
       <p><b>Item :</b> {wishlistItemCount}</p>
       <ul>
-        <ul>
         {wishlistItem.map((product)=>{
           const {id,name,description, quantity, category, brand} = product;
           return(
@@ -28,10 +27,8 @@ const WishList = () => {
         </div>
           )
         })}
-        
-        
       </ul>
-      </ul>
+      <h2 style={{color:'red'}}>{(wishlistItemCount === 0) && 'Please select item with ❤️'}</h2>
     </div>
   )
 }

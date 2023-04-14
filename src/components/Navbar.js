@@ -10,9 +10,12 @@ const Navbar = () => {
   return (
     <div>
       <h1>e-commerce</h1>
-      <div>
-        <NavLink style={{paddingRight: '1rem'}} to='/cart/:cartProductId'>Go to 🛒</NavLink><b>: {cartItemCount}</b><br/>
-        <NavLink to='/wishlist'>Wishlist ❤️</NavLink><b>: {wishlistItemCount}</b>
+      <div style={{ justifyContent:'space-between'}}>
+        <NavLink to='/products'>Product</NavLink>
+        <div style={{marginLeft:'2rem'}}>
+          <NavLink to='/cart/:cartProductId'>Go to 🛒</NavLink><b style={{paddingRight: '1rem'}}> {cartItemCount}</b>
+        <NavLink to='/wishlist'>Wishlist ❤️</NavLink><b> {wishlistItemCount}</b>
+        </div>
       </div>
     </div>
   )

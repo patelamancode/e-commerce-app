@@ -7,7 +7,7 @@ import { ProductDataContext } from '../context/ProductDataContext';
 
 const ProductList = () => {
 
-    const { productData, isLoading, addItemToCart, addItemToWishlist } = useContext(ProductDataContext);
+    const { productData, isLoading, cartItem,  addItemToCart, wishlistItem , addItemToWishlist } = useContext(ProductDataContext);
 
 
   return ( 
@@ -20,8 +20,8 @@ const ProductList = () => {
             <div key={productDataItem.id}>
                 <ProductCard {...productDataItem}/>
                 <Link to={`/product/${productDataItem.id}`} style={{cursor:'pointer' , paddingRight: '20px'}} >View Detail</Link>
-                <button style={{cursor:'pointer', paddingRight:'20px'}} onClick={() => addItemToCart(productDataItem)}>Add to 🛒</button>
-                <button style={{cursor:'pointer'}} onClick={() => addItemToWishlist(productDataItem)}>Add to ❤️</button>
+                <button style={{cursor:'pointer', paddingRight:'20px'}} onClick={() => addItemToCart(productDataItem)}>{cartItem.find(({id}) => id === productDataItem.id) ? 'Item Added to 🛒' : 'Add to 🛒'}</button>
+                <button style={{cursor:'pointer'}} onClick={() => addItemToWishlist(productDataItem)}>{wishlistItem.find(({id})=>id === productDataItem.id) ? 'Added to ❤️' : 'Add to ❤️'}</button>
             </div>
         )})}
       </ul>

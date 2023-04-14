@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-// import { useParams } from 'react-router';
 import { ProductDataContext } from '../context/ProductDataContext';
 
 
@@ -41,16 +40,15 @@ const Cart = () => {
             <p>{brand}</p>
             <div>
               <button style={{marginRight:'10px'}} onClick={() => increaseSameItemCount(product)}>+</button>
-              <p>Quantity : {sameProductCount}</p>
+              <p>Selected Quantity : {sameProductCount}</p>
               <button onClick={() => decreaseSameItemCount(product)}>-</button>
             </div>
             <button onClick={() => removeItemFromCart(product)}>Remove Item</button>
         </div>
           )
         })}
-        
-        
       </ul>
+      <h2 style={{color:'red'}}>{(cartItemCount === 0) && 'Opps !! No item in cart..'}</h2>
     </div>
   )
 }
