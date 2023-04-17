@@ -4,17 +4,20 @@ import { ProductDataContext } from '../context/ProductDataContext';
 
 const Cart = () => {
   const { cartItem , cartItemCount , removeItemFromCart } = useContext(ProductDataContext)
-  const [sameProductCount, setSameProductCount] = useState(1)
+  // const [sameProductCount, setSameProductCount] = useState(1)
+  // console.log(cartItem);
 
+  
+  let userSelectedItemQuantity = 1;
   // need to work
+
   const increaseSameItemCount = (item) =>{
-    console.log(item.id);
-    if(sameProductCount < item.quantity){
-      setSameProductCount(sameProductCount+1)
-    }
+    console.log(item.quantity);
+    item.quantity -= 1;
+    
   }
   const decreaseSameItemCount = (item) => {
-      sameProductCount > 1 && setSameProductCount(sameProductCount-1)
+      
   }
   // 
 
@@ -40,7 +43,7 @@ const Cart = () => {
             <p>{brand}</p>
             <div>
               <button style={{marginRight:'10px'}} onClick={() => increaseSameItemCount(product)}>+</button>
-              <p>Selected Quantity : {sameProductCount}</p>
+              <p>Selected Quantity : {userSelectedItemQuantity}</p>
               <button onClick={() => decreaseSameItemCount(product)}>-</button>
             </div>
             <button onClick={() => removeItemFromCart(product)}>Remove Item</button>
@@ -48,7 +51,7 @@ const Cart = () => {
           )
         })}
       </ul>
-      <h2 style={{color:'red'}}>{(cartItemCount === 0) && 'Opps !! No item in cart..'}</h2>
+      <h2 style={{color:'red'}}>{(cartItemCount === null) && 'Opps !! No item in cart..'}</h2>
     </div>
   )
 }
